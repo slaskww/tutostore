@@ -22,7 +22,7 @@ public class RegisterController {
         this.service = service;
     }
 
-    @GetMapping({"/", "/homepage"})
+    @GetMapping({"/", "/home"})
     public String showHomePage(){
         return "home";
     }
@@ -39,12 +39,12 @@ public class RegisterController {
     public String createUser(@Valid @ModelAttribute User user){
         user.setBalance(BigDecimal.valueOf(500));
         service.create(user);
-        return "loginForm";
+        return "login";
     }
 
     @GetMapping({"/login"})
     public String showLoginForm(){
-        return "loginForm";
+        return "login";
     }
 
 }

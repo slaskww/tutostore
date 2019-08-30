@@ -14,10 +14,10 @@
     <definition name="registerForm" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
     </definition>
-    <definition name="login" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/loginForm.jsp"/>
+  <!--  <definition name="login" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/login.html"/>
     </definition>
     <definition name="userPanel" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/userPanel.jsp"/>
-    </definition>
+        <put-attribute name="body" value="/WEB-INF/views/userPanel.html"/>
+    </definition>-->
 </tiles-definitions>
