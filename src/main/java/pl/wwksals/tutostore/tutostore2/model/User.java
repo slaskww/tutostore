@@ -1,8 +1,11 @@
 package pl.wwksals.tutostore.tutostore2.model;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "users")
@@ -16,9 +19,10 @@ public class User {
     @NotBlank
     private String password;
     @NotBlank
+    @Email
     private String email;
-    @NotNull
-    private Double balance;
+
+    private BigDecimal balance;
 
     public Long getId() {
         return id;
@@ -52,11 +56,11 @@ public class User {
         this.email = email;
     }
 
-    public Double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 

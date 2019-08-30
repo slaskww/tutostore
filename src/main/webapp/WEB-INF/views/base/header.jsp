@@ -2,15 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false"%>
 
-<c:url  var="register" value="/"/>
-<c:url  var="login" value="/"/>
-<c:url  var="logout" value="/"/>
-<c:url  var="userPanel" value="/"/>
-<c:url  var="courses" value="/"/>
-<c:url  var="discount" value="/"/>
-<c:url  var="about" value="/"/>
+<c:url  var="register" value="/register"/>
+<c:url  var="login" value="/login"/>
+<c:url  var="logout" value="/login"/>
+<c:url  var="userPanel" value="/userpanel"/>
+<c:url  var="courses" value="/courses"/>
+<c:url  var="discount" value="/discounts"/>
+<c:url  var="about" value="/about"/>
 
-<img src="img/logo_header.png" class="img-fluid" alt="Responsive image">
+<%--<img src="/images/logoheader.png" class="img-fluid" alt="Responsive image">--%>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a2b2c7">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

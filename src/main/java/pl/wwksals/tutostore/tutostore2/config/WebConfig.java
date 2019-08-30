@@ -2,26 +2,28 @@ package pl.wwksals.tutostore.tutostore2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesView;
 
 @EnableWebMvc
 @Configuration
 public class WebConfig {
-
     @Bean
-    public ViewResolver tilesViewResolver(){
-        TilesViewResolver tilesViewResolver = new TilesViewResolver();
+    public UrlBasedViewResolver tilesViewResolver() {
+
+        UrlBasedViewResolver tilesViewResolver = new UrlBasedViewResolver();
+        tilesViewResolver.setViewClass(TilesView.class);
         return tilesViewResolver;
     }
 
     @Bean
-    public TilesConfigurer tilesConfigurer(){
-        TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions("WEB-INF/tiles.xml");
-        tilesConfigurer.setCheckRefresh(true);
-        return tilesConfigurer;
+    public TilesConfigurer tilesConfigurer() {
+
+        TilesConfigurer tconf = new TilesConfigurer();
+        tconf.setDefinitions(new String[] { "/WEB-INF/tiles.xml" });
+        return tconf;
+
     }
 }
