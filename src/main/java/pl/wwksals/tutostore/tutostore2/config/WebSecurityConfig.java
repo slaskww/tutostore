@@ -2,7 +2,6 @@ package pl.wwksals.tutostore.tutostore2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -28,13 +27,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/","/home" ,"/register").permitAll()
+                .antMatchers("/","/home" ,"/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/user/panel").permitAll()
                 .and()
-                .logout()
+                .logout().logoutSuccessUrl("/")
                 .permitAll();
+
+
     }
 
     /**
@@ -42,14 +43,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * of "user", a password of "password", and a role of "USER".
      */
 
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService() {
-       UserDetails user = User.withDefaultPasswordEncoder()
-               .username("januszex")
-               .password("januszex")
-               .roles("USER")
-               .build();
-       return new InMemoryUserDetailsManager(user);
-    }
+//    @Bean
+//    @Override
+//    protected UserDetailsService userDetailsService() {
+//       UserDetails user = User.withDefaultPasswordEncoder()
+//               .username("januszex")
+//               .password("januszex")
+//               .roles("USER")
+//               .build();
+//       return new InMemoryUserDetailsManager(user);
+//    }
 }

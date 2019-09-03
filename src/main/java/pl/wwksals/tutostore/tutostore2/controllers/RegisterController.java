@@ -10,12 +10,12 @@ import pl.wwksals.tutostore.tutostore2.model.User;
 import pl.wwksals.tutostore.tutostore2.services.UserService;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
 
 @Controller
 public class RegisterController {
 
     private UserService service;
+
 
     @Autowired
     public RegisterController(UserService service) {
@@ -28,18 +28,17 @@ public class RegisterController {
     }
 
 
-    @GetMapping({"/register"})
-    public String showRegisterForm(Model model){
+    @GetMapping("/registration")
+    public String registration(Model model){
         model.addAttribute("user", new User());
         return "registerForm";
 
     }
 
-    @PostMapping("/create")
-    public String createUser(@Valid @ModelAttribute User user){
-        user.setBalance(BigDecimal.valueOf(500));
+    @PostMapping("/registration")
+    public String registration(@Valid @ModelAttribute User user){
         service.create(user);
-        return "login";
+        return "redirect:/user/panel";
     }
 
     @GetMapping({"/login"})
@@ -47,8 +46,11 @@ public class RegisterController {
         return "login";
     }
 
-    @GetMapping("/hello")
+
+
+   /* @GetMapping("/hello")
     public String hello(){
         return "hello";
-    }
+    }*/
+
 }

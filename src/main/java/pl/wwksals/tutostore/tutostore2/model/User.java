@@ -1,7 +1,5 @@
 package pl.wwksals.tutostore.tutostore2.model;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,6 +19,7 @@ public class User {
     @NotBlank
     @Email
     private String email;
+    private String role;
 
     private BigDecimal balance;
 
@@ -64,6 +63,14 @@ public class User {
         this.balance = balance;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -71,6 +78,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
                 ", balance=" + balance +
                 '}';
     }

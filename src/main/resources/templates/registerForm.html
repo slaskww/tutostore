@@ -9,7 +9,7 @@
 
 <h2 class="h3 mb-3 font-weight-normal text-center">Registration form:</h2>
 <form method="POST"
-           th:action="@{/create}" th:object="${user}">
+           th:action="@{/registration}" th:object="${user}">
     <input class="form-control" th:field="*{id}" hidden="true"/>
     <div class="form-group col-md-2 offset-md-5 p-0 mb-1 bg-light text-dark" >
         <label class="sr-only">Username</label>
